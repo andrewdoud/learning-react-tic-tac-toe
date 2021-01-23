@@ -10,8 +10,6 @@ export default function Board() {
   const [ winner, setWinner ] = useState(null);
   const [ xIsNext, setXIsNext ] = useState(true);
 
-  const status = 'Next player: X';
-
   const handleClick = (i) => {
     const squareCopy = squares.slice();
     squareCopy[i] = xIsNext ? 'X' : 'O';
@@ -28,7 +26,8 @@ export default function Board() {
 
   return (
     <div>
-      <div className="status" onClick={() => setSquares("X")}>{status}</div>
+      <div className="status" onClick={() => setSquares("X")}>{`Next player: ${xIsNext ? 'X' : 'O'}`}</div>
+      {/* <div className="status" onClick={() => setSquares("X")}>{`Next player: X`}</div> */}
       {
         winner ? <Banner name={winner} /> : null
       }
